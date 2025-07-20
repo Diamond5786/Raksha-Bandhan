@@ -39,6 +39,8 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 15;
         }
 
         /* Border Decorations */
@@ -178,63 +180,163 @@
             border: 3px solid rgba(255, 215, 0, 0.7);
             animation: cardPulse 3s ease-in-out infinite;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
+
+        /* Ocean Wave Animation for Wishes Card */
+        .wishes-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                0deg,
+                rgba(255, 107, 107, 0.2) 0%,
+                rgba(254, 202, 87, 0.2) 20%,
+                rgba(72, 219, 251, 0.2) 40%,
+                rgba(255, 159, 243, 0.2) 60%,
+                rgba(84, 160, 255, 0.2) 80%,
+                rgba(255, 107, 107, 0.2) 100%
+            );
+            background-size: 100% 200%;
+            animation: cardWaveFlow 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 25px;
+        }
+
+        .wishes-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(84, 160, 255, 0.15) 0%,
+                rgba(255, 159, 243, 0.15) 25%,
+                rgba(72, 219, 251, 0.15) 50%,
+                rgba(254, 202, 87, 0.15) 75%,
+                rgba(255, 107, 107, 0.15) 100%
+            );
+            background-size: 100% 300%;
+            animation: cardWaveFlowReverse 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 25px;
+        }
+
+        @keyframes cardWaveFlow {
+            0% { 
+                background-position: 0% 0%;
+                opacity: 0.6;
+            }
+            50% { 
+                background-position: 0% 100%;
+                opacity: 0.8;
+            }
+            100% { 
+                background-position: 0% 0%;
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes cardWaveFlowReverse {
+            0% { 
+                background-position: 0% 100%;
+                opacity: 0.4;
+            }
+            50% { 
+                background-position: 0% 0%;
+                opacity: 0.7;
+            }
+            100% { 
+                background-position: 0% 100%;
+                opacity: 0.4;
+            }
+        }
+
+        /* Rose Rain inside Wishes Card - FULL COVERAGE */
+        .card-rose-rain {
+            position: absolute;
+            top: -50px;
+            left: -20px;
+            width: calc(100% + 40px);
+            height: calc(100% + 100px);
+            pointer-events: none;
+            z-index: 5;
+            overflow: visible;
+        }
+
+        .card-rose {
+            position: absolute;
+            font-size: 18px;
+            color: #e74c3c;
+            animation: cardRosefall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes cardRosefall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 200px)) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Different animation durations for variety */
+        .card-rose:nth-child(1n) { animation-duration: 4s; }
+        .card-rose:nth-child(2n) { animation-duration: 5s; }
+        .card-rose:nth-child(3n) { animation-duration: 6s; }
+        .card-rose:nth-child(4n) { animation-duration: 4.5s; }
+        .card-rose:nth-child(5n) { animation-duration: 5.5s; }
+        .card-rose:nth-child(6n) { animation-duration: 3.5s; }
+        .card-rose:nth-child(7n) { animation-duration: 6.5s; }
 
         @keyframes cardPulse {
             0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
             50% { transform: scale(1.02); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); }
         }
 
-        .wishes-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: shimmer 3s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 1;
-    animation: titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
-}
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 15;
+            animation: titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+        }
 
-@keyframes titleColorChange {
-    0% { color: #e74c3c; }
-    20% { color: #f39c12; }
-    40% { color: #27ae60; }
-    60% { color: #3498db; }
-    80% { color: #9b59b6; }
-    100% { color: #e74c3c; }
-}
+        @keyframes titleColorChange {
+            0% { color: #e74c3c; }
+            20% { color: #f39c12; }
+            40% { color: #27ae60; }
+            60% { color: #3498db; }
+            80% { color: #9b59b6; }
+            100% { color: #e74c3c; }
+        }
 
-@keyframes titleFall {
-    0% { 
-        transform: translateY(-20px) scale(0.9);
-        opacity: 0.7;
-    }
-    50% { 
-        transform: translateY(0px) scale(1);
-        opacity: 1;
-    }
-    100% { 
-        transform: translateY(10px) scale(0.95);
-        opacity: 0.8;
-    }
-}
+        @keyframes titleFall {
+            0% { 
+                transform: translateY(-20px) scale(0.9);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(0px) scale(1);
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(10px) scale(0.95);
+                opacity: 0.8;
+            }
+        }
 
         .sender-info {
             background: linear-gradient(45deg, #ff6b6b, #feca57);
@@ -246,7 +348,7 @@
             font-weight: 600;
             animation: bounce 2s infinite;
             position: relative;
-            z-index: 1;
+            z-index: 15;
         }
 
         @keyframes bounce {
@@ -261,7 +363,7 @@
             align-items: center;
             margin: 25px 0;
             position: relative;
-            z-index: 1;
+            z-index: 15;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -292,15 +394,15 @@
         }
 
         .shayari {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin: 25px 0;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
-    animation: fadeInUp 1s ease-out, titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
-    font-weight: 400;
-}
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+            z-index: 15;
+            animation: fadeInUp 1s ease-out, titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+            font-weight: bold;
+        }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -310,7 +412,7 @@
         .input-section {
             margin: 30px 0;
             position: relative;
-            z-index: 1;
+            z-index: 15;
         }
 
         .input-group {
@@ -357,7 +459,7 @@
             margin: 10px;
             font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
             position: relative;
-            z-index: 1;
+            z-index: 15;
             overflow: hidden;
         }
 
@@ -387,7 +489,7 @@
             background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
             position: relative;
-            z-index: 1;
+            z-index: 15;
         }
 
         .share-link {
@@ -438,6 +540,7 @@
             .top-border, .bottom-border { height: 50px; }
             .left-border, .right-border { width: 50px; }
             .hero-image { max-width: 350px; }
+            .card-rose { font-size: 16px; }
         }
 
         .heart {
@@ -514,8 +617,17 @@
         <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵</button>
     </div>
 
+    <!-- Audio Element for Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="/placeholder.mp3?query=raksha%20bandhan%20celebration%20music" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="container">
         <div class="wishes-card">
+            <!-- Rose Rain inside Card - FULL COVERAGE -->
+            <div class="card-rose-rain" id="card-rose-rain"></div>
+
             <!-- Ad 1 - Top (Title के ऊपर) -->
             <div class="ad-container">
                 <script type="text/javascript">
@@ -622,10 +734,40 @@
     </div>
 
     <script>
-        // Audio Context for music
-        let audioContext;
+        // Audio Element for Music
+        const backgroundMusic = document.getElementById('backgroundMusic');
         let musicPlaying = false;
-        let oscillators = [];
+
+        // Create Red Rose Rain inside Card - FULL COVERAGE
+        function createCardRoseRain() {
+            const cardRoseRainContainer = document.getElementById('card-rose-rain');
+            
+            function addCardRose() {
+                const rose = document.createElement('div');
+                rose.className = 'card-rose';
+                rose.textContent = '🌹';
+                rose.style.left = Math.random() * 100 + '%';
+                rose.style.animationDelay = Math.random() * 3 + 's';
+                rose.style.fontSize = (Math.random() * 8 + 16) + 'px';
+                
+                cardRoseRainContainer.appendChild(rose);
+                
+                // Remove rose after animation completes
+                setTimeout(() => {
+                    if (rose.parentNode) {
+                        rose.parentNode.removeChild(rose);
+                    }
+                }, 7000);
+            }
+            
+            // Add roses continuously - MORE FREQUENT
+            setInterval(addCardRose, 200); // New rose every 200ms (faster)
+            
+            // Initial burst of roses
+            for (let i = 0; i < 25; i++) {
+                setTimeout(addCardRose, i * 100);
+            }
+        }
 
         // Create animated stars
         function createStars() {
@@ -752,94 +894,23 @@
             });
         }
 
-        // Enhanced music system with better audio
-        function initAudioContext() {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-        }
-
-        function createTone(frequency, duration, startTime) {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(frequency, startTime);
-            oscillator.type = 'sine';
-            
-            gainNode.gain.setValueAtTime(0, startTime);
-            gainNode.gain.linearRampToValueAtTime(0.1, startTime + 0.1);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration - 0.1);
-            
-            oscillator.start(startTime);
-            oscillator.stop(startTime + duration);
-            
-            return oscillator;
-        }
-
-        function playMelody() {
-            if (!musicPlaying) return;
-            
-            initAudioContext();
-            
-            const notes = [
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 293.66, duration: 0.5 }, // D
-                { freq: 329.63, duration: 0.5 }, // E
-                { freq: 349.23, duration: 0.5 }, // F
-                { freq: 392.00, duration: 0.5 }, // G
-                { freq: 440.00, duration: 0.5 }, // A
-                { freq: 493.88, duration: 0.5 }, // B
-                { freq: 523.25, duration: 0.5 }, // C
-            ];
-            
-            const melody = [0, 2, 4, 2, 0, 4, 6, 4, 2, 0, 2, 4, 6, 7, 6, 4];
-            
-            let currentTime = audioContext.currentTime;
-            
-            melody.forEach((noteIndex, i) => {
-                const note = notes[noteIndex];
-                const oscillator = createTone(note.freq, note.duration, currentTime);
-                oscillators.push(oscillator);
-                currentTime += note.duration + 0.1;
-            });
-            
-            if (musicPlaying) {
-                setTimeout(() => {
-                    if (musicPlaying) {
-                        playMelody();
-                    }
-                }, (currentTime - audioContext.currentTime) * 1000);
-            }
-        }
-
-        function stopAllOscillators() {
-            oscillators.forEach(osc => {
-                try {
-                    osc.stop();
-                } catch (e) {
-                    // Oscillator might already be stopped
-                }
-            });
-            oscillators = [];
-        }
-
-        // Music control
+        // Music control using <audio> element
         function toggleMusic() {
             const btn = document.getElementById('musicBtn');
             
             if (musicPlaying) {
+                backgroundMusic.pause();
                 musicPlaying = false;
-                stopAllOscillators();
                 btn.textContent = '🎵';
                 btn.style.animation = 'musicPulse 2s infinite';
             } else {
+                backgroundMusic.play().catch(error => {
+                    console.error("Music playback failed:", error);
+                    alert("संगीत चलाने में समस्या हुई। कृपया सुनिश्चित करें कि ब्राउज़र ऑटोप्ले की अनुमति देता है।");
+                });
                 musicPlaying = true;
                 btn.textContent = '🔇';
                 btn.style.animation = 'musicPulse 0.5s infinite';
-                playMelody();
             }
         }
 
@@ -847,6 +918,7 @@
         window.addEventListener('load', () => {
             createStars();
             createFloatingElements();
+            createCardRoseRain(); // Start the rose rain inside card
             checkSender();
         });
 
