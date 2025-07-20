@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>रक्षा बंधन की शुभकामनाएं</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Mukti:wght@200;300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Kalam', cursive;
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
             background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
@@ -27,6 +27,72 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* Border Decorations */
+        .border-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .top-border, .bottom-border {
+            width: 100%;
+            height: 60px;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+
+        .top-border {
+            top: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+        }
+
+        .bottom-border {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+        }
+
+        .left-border, .right-border {
+            width: 60px;
+            height: 100vh;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+
+        .left-border {
+            left: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+        }
+
+        .right-border {
+            right: 0;
+            background: linear-gradient(-90deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+        }
+
+        .decoration-item {
+            font-size: 25px;
+            animation: borderFloat 4s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .decoration-item:nth-child(even) {
+            animation-delay: -2s;
+            animation-direction: reverse;
+        }
+
+        @keyframes borderFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-10px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(0px) rotate(180deg) scale(1); }
+            75% { transform: translateY(10px) rotate(270deg) scale(0.9); }
         }
 
         .stars {
@@ -80,7 +146,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 80px 20px 20px 20px; /* Added top padding for border decorations */
         }
 
         .wishes-card {
@@ -121,6 +187,7 @@
 
         .title {
             font-size: 2.5rem;
+            font-weight: 700;
             color: #e74c3c;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -162,6 +229,7 @@
             position: relative;
             z-index: 1;
             animation: fadeInUp 1s ease-out;
+            font-weight: 400;
         }
 
         @keyframes fadeInUp {
@@ -193,10 +261,11 @@
             border: 3px solid #feca57;
             border-radius: 25px;
             font-size: 1.1rem;
-            font-family: 'Kalam', cursive;
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
             outline: none;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
         }
 
         .input-group input:focus {
@@ -216,7 +285,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 10px;
-            font-family: 'Kalam', cursive;
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
             position: relative;
             z-index: 1;
             overflow: hidden;
@@ -257,8 +326,9 @@
             border-radius: 10px;
             word-break: break-all;
             margin: 10px 0;
-            font-family: monospace;
+            font-family: 'Inter', monospace;
             border: 2px dashed #feca57;
+            font-weight: 400;
         }
 
         .music-control {
@@ -294,6 +364,10 @@
             .title { font-size: 2rem; }
             .wishes-card { padding: 25px; margin: 10px; }
             .shayari { font-size: 1.1rem; }
+            .container { padding: 70px 10px 10px 10px; }
+            .decoration-item { font-size: 20px; }
+            .top-border, .bottom-border { height: 50px; }
+            .left-border, .right-border { width: 50px; }
         }
 
         .heart {
@@ -308,6 +382,51 @@
     </style>
 </head>
 <body>
+    <!-- Border Decorations -->
+    <div class="border-decoration top-border">
+        <div class="decoration-item">🌸</div>
+        <div class="decoration-item">🎀</div>
+        <div class="decoration-item">💖</div>
+        <div class="decoration-item">🌺</div>
+        <div class="decoration-item">✨</div>
+        <div class="decoration-item">🎊</div>
+        <div class="decoration-item">💝</div>
+        <div class="decoration-item">🌸</div>
+    </div>
+
+    <div class="border-decoration bottom-border">
+        <div class="decoration-item">🎁</div>
+        <div class="decoration-item">🌺</div>
+        <div class="decoration-item">💖</div>
+        <div class="decoration-item">🎀</div>
+        <div class="decoration-item">✨</div>
+        <div class="decoration-item">🌸</div>
+        <div class="decoration-item">🎊</div>
+        <div class="decoration-item">💝</div>
+    </div>
+
+    <div class="border-decoration left-border">
+        <div class="decoration-item">🌸</div>
+        <div class="decoration-item">💖</div>
+        <div class="decoration-item">🎀</div>
+        <div class="decoration-item">✨</div>
+        <div class="decoration-item">🌺</div>
+        <div class="decoration-item">🎊</div>
+        <div class="decoration-item">💝</div>
+        <div class="decoration-item">🎁</div>
+    </div>
+
+    <div class="border-decoration right-border">
+        <div class="decoration-item">🎊</div>
+        <div class="decoration-item">🌺</div>
+        <div class="decoration-item">💝</div>
+        <div class="decoration-item">🌸</div>
+        <div class="decoration-item">💖</div>
+        <div class="decoration-item">🎀</div>
+        <div class="decoration-item">✨</div>
+        <div class="decoration-item">🎁</div>
+    </div>
+
     <!-- Animated Background Elements -->
     <div class="stars" id="stars"></div>
     <div class="floating-elements" id="floating-elements"></div>
@@ -316,11 +435,6 @@
     <div class="music-control">
         <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵</button>
     </div>
-
-    <!-- Hidden Audio -->
-    <audio id="bgMusic" loop>
-        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAAIAAAOsAA4ODg4ODg4ODg4ODg4ODg4ODhVVVVVVVVVVVVVVVVVVVVVVVVxcXFxcXFxcXFxcXFxcXFxcXGOjo6Ojo6Ojo6Ojo6Ojo6Ojo6OqqqqqqqqqqqqqqqqqqqqqqqqqsfHx8fHx8fHx8fHx8fHx8fHx+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P//////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAAA6wIQU+7AAAAAAA//tQxAADwAABpAAAACAAADSAAAAETEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
-    </audio>
 
     <div class="container">
         <div class="wishes-card">
@@ -356,12 +470,17 @@
                 <h3>🔗 अपना लिंक कॉपी करें और शेयर करें:</h3>
                 <div class="share-link" id="shareLink"></div>
                 <button class="btn" onclick="copyLink()">📋 लिंक कॉपी करें</button>
-                <button class="btn" onclick="shareOnWhatsApp()">💚 WhatsApp पर शेयर करें</button>
+                <button class="btn" onclick="shareNatively()">📱 शेयर करें</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Audio Context for music
+        let audioContext;
+        let musicPlaying = false;
+        let oscillators = [];
+
         // Create animated stars
         function createStars() {
             const starsContainer = document.getElementById('stars');
@@ -438,66 +557,130 @@
             });
         }
 
-        // Share on WhatsApp
-        function shareOnWhatsApp() {
+        // Native share function
+        function shareNatively() {
             const name = document.getElementById('yourName').value.trim();
             const shareUrl = document.getElementById('shareLink').textContent;
             const message = `🎊 रक्षा बंधन की शुभकामनाएं! 🎊\n\n${name} जी ने आपके लिए खास wishes भेजे हैं!\n\nयहाँ क्लिक करें: ${shareUrl}`;
             
-            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Music control
-        let musicPlaying = false;
-        function toggleMusic() {
-            const music = document.getElementById('bgMusic');
-            const btn = document.getElementById('musicBtn');
-            
-            if (musicPlaying) {
-                music.pause();
-                btn.textContent = '🎵';
-                musicPlaying = false;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'रक्षा बंधन की शुभकामनाएं',
+                    text: message,
+                    url: shareUrl
+                }).then(() => {
+                    console.log('Successfully shared');
+                }).catch((error) => {
+                    console.log('Error sharing:', error);
+                    fallbackShare(message);
+                });
             } else {
-                // Create a simple melody using Web Audio API
-                playMelody();
-                btn.textContent = '🔇';
-                musicPlaying = true;
+                fallbackShare(message);
             }
         }
 
-        // Simple melody using Web Audio API
+        // Fallback share for browsers that don't support Web Share API
+        function fallbackShare(message) {
+            // Try to copy to clipboard and show options
+            navigator.clipboard.writeText(message).then(() => {
+                alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
+            }).catch(() => {
+                // If clipboard also fails, show the message in a prompt
+                prompt('यह message copy करें और share करें:', message);
+            });
+        }
+
+        // Enhanced music system with better audio
+        function initAudioContext() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function createTone(frequency, duration, startTime) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(frequency, startTime);
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0, startTime);
+            gainNode.gain.linearRampToValueAtTime(0.1, startTime + 0.1);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, startTime + duration - 0.1);
+            
+            oscillator.start(startTime);
+            oscillator.stop(startTime + duration);
+            
+            return oscillator;
+        }
+
         function playMelody() {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88]; // C, D, E, F, G, A, B
-            const melody = [0, 2, 4, 2, 0, 2, 4, 2, 4, 5, 6, 4, 5, 6]; // Simple melody pattern
+            if (!musicPlaying) return;
             
-            let noteIndex = 0;
-            const playNote = () => {
-                if (!musicPlaying) return;
-                
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.setValueAtTime(notes[melody[noteIndex % melody.length]], audioContext.currentTime);
-                oscillator.type = 'sine';
-                
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-                
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.5);
-                
-                noteIndex++;
-                if (musicPlaying) {
-                    setTimeout(playNote, 600);
+            initAudioContext();
+            
+            // Beautiful Indian classical melody notes
+            const notes = [
+                { freq: 261.63, duration: 0.5 }, // C
+                { freq: 293.66, duration: 0.5 }, // D
+                { freq: 329.63, duration: 0.5 }, // E
+                { freq: 349.23, duration: 0.5 }, // F
+                { freq: 392.00, duration: 0.5 }, // G
+                { freq: 440.00, duration: 0.5 }, // A
+                { freq: 493.88, duration: 0.5 }, // B
+                { freq: 523.25, duration: 0.5 }, // C
+            ];
+            
+            const melody = [0, 2, 4, 2, 0, 4, 6, 4, 2, 0, 2, 4, 6, 7, 6, 4];
+            
+            let currentTime = audioContext.currentTime;
+            
+            melody.forEach((noteIndex, i) => {
+                const note = notes[noteIndex];
+                const oscillator = createTone(note.freq, note.duration, currentTime);
+                oscillators.push(oscillator);
+                currentTime += note.duration + 0.1; // Small gap between notes
+            });
+            
+            // Schedule next melody
+            if (musicPlaying) {
+                setTimeout(() => {
+                    if (musicPlaying) {
+                        playMelody();
+                    }
+                }, (currentTime - audioContext.currentTime) * 1000);
+            }
+        }
+
+        function stopAllOscillators() {
+            oscillators.forEach(osc => {
+                try {
+                    osc.stop();
+                } catch (e) {
+                    // Oscillator might already be stopped
                 }
-            };
+            });
+            oscillators = [];
+        }
+
+        // Music control
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
             
-            playNote();
+            if (musicPlaying) {
+                musicPlaying = false;
+                stopAllOscillators();
+                btn.textContent = '🎵';
+                btn.style.animation = 'musicPulse 2s infinite';
+            } else {
+                musicPlaying = true;
+                btn.textContent = '🔇';
+                btn.style.animation = 'musicPulse 0.5s infinite';
+                playMelody();
+            }
         }
 
         // Initialize everything when page loads
