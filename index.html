@@ -292,16 +292,15 @@
         }
 
         .shayari {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            line-height: 1.8;
-            margin: 25px 0;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-            font-weight: 400;
-        }
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin: 25px 0;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out, titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+    font-weight: 400;
+}
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
