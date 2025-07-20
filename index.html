@@ -203,20 +203,38 @@
         }
 
         .title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #e74c3c;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: titleGlow 2s ease-in-out infinite alternate;
-            position: relative;
-            z-index: 1;
-        }
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+}
 
-        @keyframes titleGlow {
-            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px #e74c3c; }
-            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #e74c3c, 0 0 30px #e74c3c; }
-        }
+@keyframes titleColorChange {
+    0% { color: #e74c3c; }
+    20% { color: #f39c12; }
+    40% { color: #27ae60; }
+    60% { color: #3498db; }
+    80% { color: #9b59b6; }
+    100% { color: #e74c3c; }
+}
+
+@keyframes titleFall {
+    0% { 
+        transform: translateY(-20px) scale(0.9);
+        opacity: 0.7;
+    }
+    50% { 
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(10px) scale(0.95);
+        opacity: 0.8;
+    }
+}
 
         .sender-info {
             background: linear-gradient(45deg, #ff6b6b, #feca57);
