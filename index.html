@@ -35,16 +35,10 @@
             justify-content: center;
             align-items: center;
             margin: 15px 0;
-            padding: 10px;
+            padding: 8px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .ad-container iframe {
             border-radius: 8px;
-            max-width: 100%;
+            backdrop-filter: blur(5px);
         }
 
         /* Border Decorations */
@@ -243,6 +237,23 @@
             60% { transform: translateY(-5px); }
         }
 
+        .shayari {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            line-height: 1.8;
+            margin: 25px 0;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+            font-weight: 400;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .gif-container {
             display: flex;
             justify-content: center;
@@ -261,7 +272,15 @@
             height: 300px;
             border-radius: 15px;
             animation: gifGlow 3s ease-in-out infinite alternate;
-            object-fit: cover;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite, gifGlow 3s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         @keyframes gifGlow {
@@ -395,6 +414,7 @@
         @media (max-width: 768px) {
             .title { font-size: 2rem; }
             .wishes-card { padding: 25px; margin: 10px; }
+            .shayari { font-size: 1.1rem; }
             .container { padding: 70px 10px 10px 10px; }
             .decoration-item { font-size: 20px; }
             .top-border, .bottom-border { height: 50px; }
@@ -485,7 +505,29 @@
         <div class="wishes-card">
             <h1 class="title">🎊 रक्षा बंधन की शुभकामनाएं 🎊</h1>
             
-            <!-- Ad 1 - After Title (Large Banner) -->
+            <div id="senderInfo" class="sender-info hidden">
+                <span class="heart">❤️</span> <span id="senderName"></span> जी ने आपको ये प्यार भरी शुभकामनाएं भेजी हैं <span class="heart">❤️</span>
+            </div>
+
+            <!-- शायरी वापस आ गई! -->
+            <div class="shayari">
+                "रक्षा का बंधन, प्रेम की डोर,<br>
+                भाई-बहन का अनमोल छोर।<br>
+                राखी के रंग में सजी है दुआ,<br>
+                खुशियों से भरे जीवन की रुआ।<br><br>
+                
+                <span class="heart">🌟</span> चाँद सितारों से सजे आपके सपने,<br>
+                फूलों की खुशबू से महके आपके अपने।<br>
+                हर मुश्किल में हो साथ खुदा का,<br>
+                यही दुआ है इस प्यार भरे रिश्ते का। <span class="heart">🌟</span><br><br>
+                
+                <span class="heart">💫</span> मिठास हो जिंदगी में शहद सी,<br>
+                खुशियाँ बरसें बारिश की बूंदों सी।<br>
+                रक्षा बंधन के इस पावन अवसर पर,<br>
+                ढेर सारी शुभकामनाएं आपके घर। <span class="heart">💫</span>"
+            </div>
+
+            <!-- Ad 1 - After Shayari -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
@@ -498,12 +540,16 @@
                 </script>
                 <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
-            
-            <div id="senderInfo" class="sender-info hidden">
-                <span class="heart">❤️</span> <span id="senderName"></span> जी ने आपको ये प्यार भरी शुभकामनाएं भेजी हैं <span class="heart">❤️</span>
+
+            <!-- Animated Raksha Bandhan GIF -->
+            <div class="gif-container">
+                <div class="raksha-bandhan-gif">
+                    🎊 रक्षा बंधन 🎊<br>
+                    👫 भाई-बहन 👫
+                </div>
             </div>
 
-            <!-- Ad 2 - After Sender Info (Medium Banner) -->
+            <!-- Ad 2 - After GIF -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
@@ -515,41 +561,6 @@
                     };
                 </script>
                 <script type="text/javascript" src="//www.highperformanceformat.com/fefd62c5b0fe0d2a130ffefb6e36c72b/invoke.js"></script>
-            </div>
-
-            <!-- Animated Raksha Bandhan GIF -->
-            <div class="gif-container">
-                <img src="/placeholder.svg?height=300&width=400" 
-                     alt="Raksha Bandhan Celebration - Brother Sister Festival" 
-                     class="raksha-bandhan-gif">
-            </div>
-
-            <!-- Ad 3 - After GIF (Mobile Banner) -->
-            <div class="ad-container">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
-                        'format' : 'iframe',
-                        'height' : 50,
-                        'width' : 320,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
-            </div>
-
-            <!-- Ad 4 - Before Input (Large Banner) -->
-            <div class="ad-container">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '976aba72103d7f30c652860157ce80d7',
-                        'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
 
             <div class="input-section">
@@ -562,53 +573,25 @@
                 </button>
             </div>
 
-            <!-- Ad 5 - After Input Button (Medium Banner) -->
-            <div class="ad-container">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'fefd62c5b0fe0d2a130ffefb6e36c72b',
-                        'format' : 'iframe',
-                        'height' : 60,
-                        'width' : 468,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/fefd62c5b0fe0d2a130ffefb6e36c72b/invoke.js"></script>
-            </div>
-
             <div id="shareSection" class="share-section hidden">
                 <h3>🔗 अपना लिंक कॉपी करें और शेयर करें:</h3>
                 <div class="share-link" id="shareLink"></div>
                 <button class="btn" onclick="copyLink()">📋 लिंक कॉपी करें</button>
                 <button class="btn" onclick="shareNatively()">📱 शेयर करें</button>
-                
-                <!-- Ad 6 - Inside Share Section (Mobile Banner) -->
-                <div class="ad-container">
-                    <script type="text/javascript">
-                        atOptions = {
-                            'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
-                </div>
             </div>
 
-            <!-- Ad 7 - Bottom of Card (Large Banner) -->
+            <!-- Ad 3 - Bottom -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
-                        'key' : '976aba72103d7f30c652860157ce80d7',
+                        'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
                         'format' : 'iframe',
-                        'height' : 90,
-                        'width' : 728,
+                        'height' : 50,
+                        'width' : 320,
                         'params' : {}
                     };
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
             </div>
         </div>
     </div>
@@ -639,7 +622,6 @@
             const container = document.getElementById('floating-elements');
             const elements = ['🌸', '🌺', '🌻', '🌷', '🌹', '💖', '💝', '🎀', '✨', '🎊', '💫', '⭐', '🌟', '💐', '🏵️'];
             
-            // Create 30 floating elements instead of 15
             for (let i = 0; i < 30; i++) {
                 const element = document.createElement('div');
                 element.className = 'rakhi';
@@ -649,14 +631,12 @@
                 element.style.animationDelay = Math.random() * 6 + 's';
                 element.style.animationDuration = (Math.random() * 4 + 4) + 's';
                 
-                // Add different sizes for variety
-                const size = Math.random() * 20 + 20; // 20px to 40px
+                const size = Math.random() * 20 + 20;
                 element.style.fontSize = size + 'px';
                 
                 container.appendChild(element);
             }
             
-            // Add more background decorative elements
             for (let i = 0; i < 20; i++) {
                 const bgElement = document.createElement('div');
                 bgElement.className = 'rakhi';
@@ -706,7 +686,6 @@
             navigator.clipboard.writeText(linkText).then(() => {
                 alert('लिंक कॉपी हो गया! 📋✅');
             }).catch(() => {
-                // Fallback for older browsers
                 const textArea = document.createElement('textarea');
                 textArea.value = linkText;
                 document.body.appendChild(textArea);
@@ -741,11 +720,9 @@
 
         // Fallback share for browsers that don't support Web Share API
         function fallbackShare(message) {
-            // Try to copy to clipboard and show options
             navigator.clipboard.writeText(message).then(() => {
                 alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
             }).catch(() => {
-                // If clipboard also fails, show the message in a prompt
                 prompt('यह message copy करें और share करें:', message);
             });
         }
@@ -782,7 +759,6 @@
             
             initAudioContext();
             
-            // Beautiful Indian classical melody notes
             const notes = [
                 { freq: 261.63, duration: 0.5 }, // C
                 { freq: 293.66, duration: 0.5 }, // D
@@ -802,10 +778,9 @@
                 const note = notes[noteIndex];
                 const oscillator = createTone(note.freq, note.duration, currentTime);
                 oscillators.push(oscillator);
-                currentTime += note.duration + 0.1; // Small gap between notes
+                currentTime += note.duration + 0.1;
             });
             
-            // Schedule next melody
             if (musicPlaying) {
                 setTimeout(() => {
                     if (musicPlaying) {
@@ -852,7 +827,6 @@
 
         // Add some interactive effects
         document.addEventListener('click', (e) => {
-            // Create click effect
             const ripple = document.createElement('div');
             ripple.style.position = 'fixed';
             ripple.style.left = e.clientX + 'px';
