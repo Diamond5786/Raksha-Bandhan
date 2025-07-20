@@ -180,7 +180,7 @@
             border: 3px solid rgba(255, 215, 0, 0.7);
             animation: cardPulse 3s ease-in-out infinite;
             position: relative;
-            overflow: visible; /* Changed from hidden to visible */
+            overflow: hidden;
         }
 
         /* Ocean Wave Animation for Wishes Card */
@@ -259,45 +259,57 @@
             }
         }
 
-        /* Rose Rain inside Wishes Card - FULL COVERAGE */
+        /* Rose Rain inside Wishes Card */
         .card-rose-rain {
             position: absolute;
-            top: -50px; /* Start above the card */
-            left: -20px; /* Extend beyond card edges */
-            width: calc(100% + 40px); /* Wider than card */
-            height: calc(100% + 100px); /* Taller than card */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 5;
-            overflow: visible;
+            overflow: hidden;
+            border-radius: 25px;
         }
 
         .card-rose {
             position: absolute;
-            font-size: 18px;
+            font-size: 20px;
             color: #e74c3c;
             animation: cardRosefall linear infinite;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         @keyframes cardRosefall {
             0% {
-                transform: translateY(-100px) rotate(0deg);
+                transform: translateY(-50px) rotate(0deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(calc(100vh + 200px)) rotate(360deg);
-                opacity: 0.3;
+                transform: translateY(calc(100% + 50px)) rotate(360deg);
+                opacity: 0.2;
             }
         }
 
-        /* Different animation durations for variety */
-        .card-rose:nth-child(1n) { animation-duration: 4s; }
-        .card-rose:nth-child(2n) { animation-duration: 5s; }
-        .card-rose:nth-child(3n) { animation-duration: 6s; }
-        .card-rose:nth-child(4n) { animation-duration: 4.5s; }
-        .card-rose:nth-child(5n) { animation-duration: 5.5s; }
-        .card-rose:nth-child(6n) { animation-duration: 3.5s; }
-        .card-rose:nth-child(7n) { animation-duration: 6.5s; }
+        .card-rose:nth-child(odd) {
+            animation-duration: 4s;
+        }
+
+        .card-rose:nth-child(even) {
+            animation-duration: 5s;
+        }
+
+        .card-rose:nth-child(3n) {
+            animation-duration: 6s;
+        }
+
+        .card-rose:nth-child(4n) {
+            animation-duration: 4.5s;
+        }
+
+        .card-rose:nth-child(5n) {
+            animation-duration: 5.5s;
+        }
 
         @keyframes cardPulse {
             0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
@@ -619,7 +631,7 @@
 
     <div class="container">
         <div class="wishes-card">
-            <!-- Rose Rain inside Card - FULL COVERAGE -->
+            <!-- Rose Rain inside Card -->
             <div class="card-rose-rain" id="card-rose-rain"></div>
 
             <!-- Ad 1 - Top (Title के ऊपर) -->
@@ -733,7 +745,7 @@
         let musicPlaying = false;
         let oscillators = [];
 
-        // Create Red Rose Rain inside Card - FULL COVERAGE
+        // Create Red Rose Rain inside Card
         function createCardRoseRain() {
             const cardRoseRainContainer = document.getElementById('card-rose-rain');
             
@@ -742,7 +754,7 @@
                 rose.className = 'card-rose';
                 rose.textContent = '🌹';
                 rose.style.left = Math.random() * 100 + '%';
-                rose.style.animationDelay = Math.random() * 3 + 's';
+                rose.style.animationDelay = Math.random() * 2 + 's';
                 rose.style.fontSize = (Math.random() * 8 + 16) + 'px';
                 
                 cardRoseRainContainer.appendChild(rose);
@@ -752,15 +764,15 @@
                     if (rose.parentNode) {
                         rose.parentNode.removeChild(rose);
                     }
-                }, 7000);
+                }, 6000);
             }
             
-            // Add roses continuously - MORE FREQUENT
-            setInterval(addCardRose, 200); // New rose every 200ms (faster)
+            // Add roses continuously
+            setInterval(addCardRose, 400); // New rose every 400ms
             
-            // Initial burst of roses
-            for (let i = 0; i < 25; i++) {
-                setTimeout(addCardRose, i * 100);
+            // Initial roses
+            for (let i = 0; i < 10; i++) {
+                setTimeout(addCardRose, i * 300);
             }
         }
 
@@ -984,4 +996,43 @@
         window.addEventListener('load', () => {
             createStars();
             createFloatingElements();
-            createCardRoseRain();
+            createCardRoseRain(); // Start the rose rain inside card
+            checkSender();
+        });
+
+        // Add some interactive effects
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.style.position = 'fixed';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top = e.clientY + 'px';
+            ripple.style.width = '10px';
+            ripple.style.height = '10px';
+            ripple.style.background = 'rgba(255, 107, 107, 0.6)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.transform = 'translate(-50%, -50%)';
+            ripple.style.animation = 'ripple 0.6s ease-out';
+            ripple.style.pointerEvents = 'none';
+            ripple.style.zIndex = '1000';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: translate(-50%, -50%) scale(20);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
