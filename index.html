@@ -34,15 +34,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
+            margin: 15px 0;
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .ad-container iframe {
             border-radius: 8px;
+            max-width: 100%;
         }
 
         /* Border Decorations */
@@ -256,9 +258,10 @@
         .raksha-bandhan-gif {
             width: 100%;
             max-width: 400px;
-            height: auto;
+            height: 300px;
             border-radius: 15px;
             animation: gifGlow 3s ease-in-out infinite alternate;
+            object-fit: cover;
         }
 
         @keyframes gifGlow {
@@ -400,6 +403,7 @@
             /* Mobile ad adjustments */
             .ad-container {
                 overflow-x: auto;
+                margin: 10px 0;
             }
         }
 
@@ -481,7 +485,7 @@
         <div class="wishes-card">
             <h1 class="title">🎊 रक्षा बंधन की शुभकामनाएं 🎊</h1>
             
-            <!-- Ad 1 - After Title -->
+            <!-- Ad 1 - After Title (Large Banner) -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
@@ -499,14 +503,7 @@
                 <span class="heart">❤️</span> <span id="senderName"></span> जी ने आपको ये प्यार भरी शुभकामनाएं भेजी हैं <span class="heart">❤️</span>
             </div>
 
-            <!-- Animated Raksha Bandhan GIF -->
-            <div class="gif-container">
-                <img src="/placeholder.svg?height=300&width=400" 
-                     alt="Raksha Bandhan Celebration" 
-                     class="raksha-bandhan-gif">
-            </div>
-
-            <!-- Ad 2 - After GIF -->
+            <!-- Ad 2 - After Sender Info (Medium Banner) -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
@@ -520,17 +517,14 @@
                 <script type="text/javascript" src="//www.highperformanceformat.com/fefd62c5b0fe0d2a130ffefb6e36c72b/invoke.js"></script>
             </div>
 
-            <div class="input-section">
-                <div class="input-group">
-                    <label for="yourName">अपना नाम लिखें:</label>
-                    <input type="text" id="yourName" placeholder="यहाँ अपना नाम लिखें..." />
-                </div>
-                <button class="btn" onclick="generateShareLink()">
-                    🎁 शेयर लिंक बनाएं 🎁
-                </button>
+            <!-- Animated Raksha Bandhan GIF -->
+            <div class="gif-container">
+                <img src="/placeholder.svg?height=300&width=400" 
+                     alt="Raksha Bandhan Celebration - Brother Sister Festival" 
+                     class="raksha-bandhan-gif">
             </div>
 
-            <!-- Ad 3 - Before Share Section -->
+            <!-- Ad 3 - After GIF (Mobile Banner) -->
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
@@ -544,11 +538,77 @@
                 <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
             </div>
 
+            <!-- Ad 4 - Before Input (Large Banner) -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '976aba72103d7f30c652860157ce80d7',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="yourName">अपना नाम लिखें:</label>
+                    <input type="text" id="yourName" placeholder="यहाँ अपना नाम लिखें..." />
+                </div>
+                <button class="btn" onclick="generateShareLink()">
+                    🎁 शेयर लिंक बनाएं 🎁
+                </button>
+            </div>
+
+            <!-- Ad 5 - After Input Button (Medium Banner) -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'fefd62c5b0fe0d2a130ffefb6e36c72b',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/fefd62c5b0fe0d2a130ffefb6e36c72b/invoke.js"></script>
+            </div>
+
             <div id="shareSection" class="share-section hidden">
                 <h3>🔗 अपना लिंक कॉपी करें और शेयर करें:</h3>
                 <div class="share-link" id="shareLink"></div>
                 <button class="btn" onclick="copyLink()">📋 लिंक कॉपी करें</button>
                 <button class="btn" onclick="shareNatively()">📱 शेयर करें</button>
+                
+                <!-- Ad 6 - Inside Share Section (Mobile Banner) -->
+                <div class="ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- Ad 7 - Bottom of Card (Large Banner) -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '976aba72103d7f30c652860157ce80d7',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
         </div>
     </div>
