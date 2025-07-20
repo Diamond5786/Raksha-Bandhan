@@ -299,7 +299,7 @@
     position: relative;
     z-index: 1;
     animation: fadeInUp 1s ease-out, titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
-    font-weight: 400;
+    font-weight: bold;
 }
 
         @keyframes fadeInUp {
@@ -517,7 +517,7 @@
     <div class="container">
         <div class="wishes-card">
             <!-- Ad 1 - Top (Title के ऊपर) -->
-            <div class="ad-container">
+            <div class="ad-container" id="ad1">
                 <script type="text/javascript">
                     atOptions = {
                         'key' : '976aba72103d7f30c652860157ce80d7',
@@ -553,7 +553,7 @@
             </div>
 
             <!-- Ad 2 - After First Shayari -->
-            <div class="ad-container">
+            <div class="ad-container" id="ad2">
                 <script type="text/javascript">
                     atOptions = {
                         'key' : 'fefd62c5b0fe0d2a130ffefb6e36c72b',
@@ -575,7 +575,7 @@
             </div>
 
             <!-- Ad 3 - After Second Shayari -->
-            <div class="ad-container">
+            <div class="ad-container" id="ad3">
                 <script type="text/javascript">
                     atOptions = {
                         'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
@@ -606,7 +606,7 @@
             </div>
 
             <!-- Ad 4 - Bottom -->
-            <div class="ad-container">
+            <div class="ad-container" id="ad4">
                 <script type="text/javascript">
                     atOptions = {
                         'key' : '976aba72103d7f30c652860157ce80d7',
@@ -626,6 +626,67 @@
         let audioContext;
         let musicPlaying = false;
         let oscillators = [];
+
+        // Ad refresh function - हर 7 second में ads refresh
+        function refreshAds() {
+            const adConfigs = [
+                {
+                    id: 'ad1',
+                    key: '976aba72103d7f30c652860157ce80d7',
+                    height: 90,
+                    width: 728
+                },
+                {
+                    id: 'ad2',
+                    key: 'fefd62c5b0fe0d2a130ffefb6e36c72b',
+                    height: 60,
+                    width: 468
+                },
+                {
+                    id: 'ad3',
+                    key: 'e8b917f8467f99da5f3bfb4cf678185d',
+                    height: 50,
+                    width: 320
+                },
+                {
+                    id: 'ad4',
+                    key: '976aba72103d7f30c652860157ce80d7',
+                    height: 90,
+                    width: 728
+                }
+            ];
+
+            adConfigs.forEach(config => {
+                const adContainer = document.getElementById(config.id);
+                if (adContainer) {
+                    // Clear existing ad
+                    adContainer.innerHTML = '';
+                    
+                    // Create new ad script
+                    const script1 = document.createElement('script');
+                    script1.type = 'text/javascript';
+                    script1.innerHTML = `
+                        atOptions = {
+                            'key' : '${config.key}',
+                            'format' : 'iframe',
+                            'height' : ${config.height},
+                            'width' : ${config.width},
+                            'params' : {}
+                        };
+                    `;
+                    
+                    const script2 = document.createElement('script');
+                    script2.type = 'text/javascript';
+                    script2.src = `//www.highperformanceformat.com/${config.key}/invoke.js`;
+                    
+                    adContainer.appendChild(script1);
+                    adContainer.appendChild(script2);
+                }
+            });
+        }
+
+        // Start ad refresh timer
+        setInterval(refreshAds, 7000); // 7 seconds
 
         // Create animated stars
         function createStars() {
