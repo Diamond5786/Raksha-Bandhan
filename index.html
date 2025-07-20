@@ -103,6 +103,57 @@
             }
         }
 
+        /* Red Rose Rain Effect */
+        .rose-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+            overflow: hidden;
+        }
+
+        .rose {
+            position: absolute;
+            font-size: 25px;
+            color: #e74c3c;
+            animation: rosefall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes rosefall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        .rose:nth-child(odd) {
+            animation-duration: 3s;
+        }
+
+        .rose:nth-child(even) {
+            animation-duration: 4s;
+        }
+
+        .rose:nth-child(3n) {
+            animation-duration: 5s;
+        }
+
+        .rose:nth-child(4n) {
+            animation-duration: 3.5s;
+        }
+
+        .rose:nth-child(5n) {
+            animation-duration: 4.5s;
+        }
+
         /* Ad Containers */
         .ad-container {
             display: flex;
@@ -512,6 +563,7 @@
             .top-border, .bottom-border { height: 50px; }
             .left-border, .right-border { width: 50px; }
             .hero-image { max-width: 350px; }
+            .rose { font-size: 20px; }
         }
 
         .heart {
@@ -582,6 +634,9 @@
     <!-- Animated Background Elements -->
     <div class="stars" id="stars"></div>
     <div class="floating-elements" id="floating-elements"></div>
+    
+    <!-- Red Rose Rain -->
+    <div class="rose-rain" id="rose-rain"></div>
 
     <!-- Music Control -->
     <div class="music-control">
@@ -700,6 +755,37 @@
         let audioContext;
         let musicPlaying = false;
         let oscillators = [];
+
+        // Create Red Rose Rain
+        function createRoseRain() {
+            const roseRainContainer = document.getElementById('rose-rain');
+            
+            function addRose() {
+                const rose = document.createElement('div');
+                rose.className = 'rose';
+                rose.textContent = '🌹';
+                rose.style.left = Math.random() * 100 + '%';
+                rose.style.animationDelay = Math.random() * 2 + 's';
+                rose.style.fontSize = (Math.random() * 10 + 20) + 'px';
+                
+                roseRainContainer.appendChild(rose);
+                
+                // Remove rose after animation completes
+                setTimeout(() => {
+                    if (rose.parentNode) {
+                        rose.parentNode.removeChild(rose);
+                    }
+                }, 5000);
+            }
+            
+            // Add roses continuously
+            setInterval(addRose, 300); // New rose every 300ms
+            
+            // Initial roses
+            for (let i = 0; i < 15; i++) {
+                setTimeout(addRose, i * 200);
+            }
+        }
 
         // Create animated stars
         function createStars() {
@@ -921,6 +1007,7 @@
         window.addEventListener('load', () => {
             createStars();
             createFloatingElements();
+            createRoseRain(); // Start the rose rain
             checkSender();
         });
 
