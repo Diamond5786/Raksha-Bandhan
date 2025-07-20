@@ -150,15 +150,20 @@
         }
 
         .wishes-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, 
+        rgba(255, 182, 193, 0.95) 0%,
+        rgba(255, 218, 185, 0.95) 25%,
+        rgba(255, 240, 245, 0.95) 50%,
+        rgba(230, 230, 250, 0.95) 75%,
+        rgba(255, 192, 203, 0.95) 100%);
+            backdrop-filter: blur(15px);
             border-radius: 25px;
             padding: 40px;
             max-width: 600px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 3px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 215, 0, 0.7);
             animation: cardPulse 3s ease-in-out infinite;
             position: relative;
             overflow: hidden;
@@ -379,41 +384,66 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
+
+        @keyframes backgroundFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-15px) translateX(10px) rotate(90deg) scale(1.1); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-5px) translateX(-10px) rotate(180deg) scale(0.9); 
+                opacity: 0.4;
+            }
+            75% { 
+                transform: translateY(10px) translateX(5px) rotate(270deg) scale(1.2); 
+                opacity: 0.7;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Border Decorations -->
     <div class="border-decoration top-border">
         <div class="decoration-item">🌸</div>
-        <div class="decoration-item">🎀</div>
-        <div class="decoration-item">💖</div>
         <div class="decoration-item">🌺</div>
+        <div class="decoration-item">🌻</div>
+        <div class="decoration-item">🌷</div>
+        <div class="decoration-item">🌹</div>
+        <div class="decoration-item">💖</div>
+        <div class="decoration-item">🎀</div>
         <div class="decoration-item">✨</div>
         <div class="decoration-item">🎊</div>
         <div class="decoration-item">💝</div>
-        <div class="decoration-item">🌸</div>
     </div>
 
     <div class="border-decoration bottom-border">
-        <div class="decoration-item">🎁</div>
+        <div class="decoration-item">🏵️</div>
         <div class="decoration-item">🌺</div>
+        <div class="decoration-item">💐</div>
+        <div class="decoration-item">🌸</div>
+        <div class="decoration-item">🌻</div>
         <div class="decoration-item">💖</div>
         <div class="decoration-item">🎀</div>
         <div class="decoration-item">✨</div>
-        <div class="decoration-item">🌸</div>
         <div class="decoration-item">🎊</div>
-        <div class="decoration-item">💝</div>
+        <div class="decoration-item">💫</div>
     </div>
 
     <div class="border-decoration left-border">
         <div class="decoration-item">🌸</div>
         <div class="decoration-item">💖</div>
+        <div class="decoration-item">🌺</div>
         <div class="decoration-item">🎀</div>
         <div class="decoration-item">✨</div>
-        <div class="decoration-item">🌺</div>
+        <div class="decoration-item">🌻</div>
+        <div class="decoration-item">🌷</div>
         <div class="decoration-item">🎊</div>
         <div class="decoration-item">💝</div>
-        <div class="decoration-item">🎁</div>
+        <div class="decoration-item">🏵️</div>
     </div>
 
     <div class="border-decoration right-border">
@@ -422,9 +452,11 @@
         <div class="decoration-item">💝</div>
         <div class="decoration-item">🌸</div>
         <div class="decoration-item">💖</div>
+        <div class="decoration-item">🌻</div>
         <div class="decoration-item">🎀</div>
         <div class="decoration-item">✨</div>
-        <div class="decoration-item">🎁</div>
+        <div class="decoration-item">🌷</div>
+        <div class="decoration-item">💫</div>
     </div>
 
     <!-- Animated Background Elements -->
@@ -445,16 +477,21 @@
             </div>
 
             <div class="shayari">
-                "भाई बहन का प्यार निराला,<br>
-                रक्षा बंधन का त्योहार सुहाना।<br>
-                राखी के धागे में बंधा है प्यार,<br>
-                जीवन भर का यह अटूट रिश्ता यार।<br><br>
-                
-                <span class="heart">💝</span> सुख समृद्धि से भरा रहे आपका घर,<br>
-                खुशियों से महके आपका हर पल हर क्षण। <span class="heart">💝</span><br><br>
-                
-                रक्षा बंधन की हार्दिक शुभकामनाएं!"
-            </div>
+    "रक्षा का बंधन, प्रेम की डोर,<br>
+    भाई-बहन का अनमोल छोर।<br>
+    राखी के रंग में सजी है दुआ,<br>
+    खुशियों से भरे जीवन की रुआ।<br><br>
+    
+    <span class="heart">🌟</span> चाँद सितारों से सजे आपके सपने,<br>
+    फूलों की खुशबू से महके आपके अपने।<br>
+    हर मुश्किल में हो साथ खुदा का,<br>
+    यही दुआ है इस प्यार भरे रिश्ते का। <span class="heart">🌟</span><br><br>
+    
+    <span class="heart">💫</span> मिठास हो जिंदगी में शहद सी,<br>
+    खुशियाँ बरसें बारिश की बूंदों सी।<br>
+    रक्षा बंधन के इस पावन अवसर पर,<br>
+    ढेर सारी शुभकामनाएं आपके घर। <span class="heart">💫</span>"
+</div>
 
             <div class="input-section">
                 <div class="input-group">
@@ -498,20 +535,42 @@
 
         // Create floating rakhi elements
         function createFloatingElements() {
-            const container = document.getElementById('floating-elements');
-            const elements = ['🎀', '🌸', '💖', '✨', '🎊', '🌺', '💝', '🎁'];
-            
-            for (let i = 0; i < 15; i++) {
-                const element = document.createElement('div');
-                element.className = 'rakhi';
-                element.textContent = elements[Math.floor(Math.random() * elements.length)];
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.animationDelay = Math.random() * 6 + 's';
-                element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                container.appendChild(element);
-            }
-        }
+    const container = document.getElementById('floating-elements');
+    const elements = ['🌸', '🌺', '🌻', '🌷', '🌹', '💖', '💝', '🎀', '✨', '🎊', '💫', '⭐', '🌟', '💐', '🏵️'];
+    
+    // Create 30 floating elements instead of 15
+    for (let i = 0; i < 30; i++) {
+        const element = document.createElement('div');
+        element.className = 'rakhi';
+        element.textContent = elements[Math.floor(Math.random() * elements.length)];
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.style.animationDelay = Math.random() * 6 + 's';
+        element.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        
+        // Add different sizes for variety
+        const size = Math.random() * 20 + 20; // 20px to 40px
+        element.style.fontSize = size + 'px';
+        
+        container.appendChild(element);
+    }
+    
+    // Add more background decorative elements
+    for (let i = 0; i < 20; i++) {
+        const bgElement = document.createElement('div');
+        bgElement.className = 'rakhi';
+        bgElement.textContent = elements[Math.floor(Math.random() * elements.length)];
+        bgElement.style.left = Math.random() * 100 + '%';
+        bgElement.style.top = Math.random() * 100 + '%';
+        bgElement.style.animationDelay = Math.random() * 8 + 's';
+        bgElement.style.animationDuration = (Math.random() * 6 + 6) + 's';
+        bgElement.style.fontSize = (Math.random() * 15 + 15) + 'px';
+        bgElement.style.opacity = '0.6';
+        bgElement.style.zIndex = '1';
+        
+        container.appendChild(bgElement);
+    }
+}
 
         // Check for sender name in URL
         function checkSender() {
