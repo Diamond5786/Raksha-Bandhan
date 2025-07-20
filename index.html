@@ -29,6 +29,22 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* Ad Containers */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .ad-container iframe {
+            border-radius: 8px;
+        }
+
         /* Border Decorations */
         .border-decoration {
             position: fixed;
@@ -146,7 +162,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px 20px 20px; /* Added top padding for border decorations */
+            padding: 80px 20px 20px 20px;
         }
 
         .wishes-card {
@@ -225,21 +241,29 @@
             60% { transform: translateY(-5px); }
         }
 
-        .shayari {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            line-height: 1.8;
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 25px 0;
-            font-style: italic;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
-            font-weight: 400;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .raksha-bandhan-gif {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            animation: gifGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gifGlow {
+            from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.5); }
+            to { box-shadow: 0 0 30px rgba(255, 107, 107, 0.8), 0 0 40px rgba(254, 202, 87, 0.6); }
         }
 
         .input-section {
@@ -368,11 +392,15 @@
         @media (max-width: 768px) {
             .title { font-size: 2rem; }
             .wishes-card { padding: 25px; margin: 10px; }
-            .shayari { font-size: 1.1rem; }
             .container { padding: 70px 10px 10px 10px; }
             .decoration-item { font-size: 20px; }
             .top-border, .bottom-border { height: 50px; }
             .left-border, .right-border { width: 50px; }
+            
+            /* Mobile ad adjustments */
+            .ad-container {
+                overflow-x: auto;
+            }
         }
 
         .heart {
@@ -383,25 +411,6 @@
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
-        }
-
-        @keyframes backgroundFloat {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); 
-                opacity: 0.6;
-            }
-            25% { 
-                transform: translateY(-15px) translateX(10px) rotate(90deg) scale(1.1); 
-                opacity: 0.8;
-            }
-            50% { 
-                transform: translateY(-5px) translateX(-10px) rotate(180deg) scale(0.9); 
-                opacity: 0.4;
-            }
-            75% { 
-                transform: translateY(10px) translateX(5px) rotate(270deg) scale(1.2); 
-                opacity: 0.7;
-            }
         }
     </style>
 </head>
@@ -472,26 +481,44 @@
         <div class="wishes-card">
             <h1 class="title">🎊 रक्षा बंधन की शुभकामनाएं 🎊</h1>
             
+            <!-- Ad 1 - After Title -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '976aba72103d7f30c652860157ce80d7',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
+            </div>
+            
             <div id="senderInfo" class="sender-info hidden">
                 <span class="heart">❤️</span> <span id="senderName"></span> जी ने आपको ये प्यार भरी शुभकामनाएं भेजी हैं <span class="heart">❤️</span>
             </div>
 
-            <div class="shayari">
-    "रक्षा का बंधन, प्रेम की डोर,<br>
-    भाई-बहन का अनमोल छोर।<br>
-    राखी के रंग में सजी है दुआ,<br>
-    खुशियों से भरे जीवन की रुआ।<br><br>
-    
-    <span class="heart">🌟</span> चाँद सितारों से सजे आपके सपने,<br>
-    फूलों की खुशबू से महके आपके अपने।<br>
-    हर मुश्किल में हो साथ खुदा का,<br>
-    यही दुआ है इस प्यार भरे रिश्ते का। <span class="heart">🌟</span><br><br>
-    
-    <span class="heart">💫</span> मिठास हो जिंदगी में शहद सी,<br>
-    खुशियाँ बरसें बारिश की बूंदों सी।<br>
-    रक्षा बंधन के इस पावन अवसर पर,<br>
-    ढेर सारी शुभकामनाएं आपके घर। <span class="heart">💫</span>"
-</div>
+            <!-- Animated Raksha Bandhan GIF -->
+            <div class="gif-container">
+                <img src="/placeholder.svg?height=300&width=400" 
+                     alt="Raksha Bandhan Celebration" 
+                     class="raksha-bandhan-gif">
+            </div>
+
+            <!-- Ad 2 - After GIF -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'fefd62c5b0fe0d2a130ffefb6e36c72b',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/fefd62c5b0fe0d2a130ffefb6e36c72b/invoke.js"></script>
+            </div>
 
             <div class="input-section">
                 <div class="input-group">
@@ -501,6 +528,20 @@
                 <button class="btn" onclick="generateShareLink()">
                     🎁 शेयर लिंक बनाएं 🎁
                 </button>
+            </div>
+
+            <!-- Ad 3 - Before Share Section -->
+            <div class="ad-container">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'e8b917f8467f99da5f3bfb4cf678185d',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/e8b917f8467f99da5f3bfb4cf678185d/invoke.js"></script>
             </div>
 
             <div id="shareSection" class="share-section hidden">
@@ -535,42 +576,42 @@
 
         // Create floating rakhi elements
         function createFloatingElements() {
-    const container = document.getElementById('floating-elements');
-    const elements = ['🌸', '🌺', '🌻', '🌷', '🌹', '💖', '💝', '🎀', '✨', '🎊', '💫', '⭐', '🌟', '💐', '🏵️'];
-    
-    // Create 30 floating elements instead of 15
-    for (let i = 0; i < 30; i++) {
-        const element = document.createElement('div');
-        element.className = 'rakhi';
-        element.textContent = elements[Math.floor(Math.random() * elements.length)];
-        element.style.left = Math.random() * 100 + '%';
-        element.style.top = Math.random() * 100 + '%';
-        element.style.animationDelay = Math.random() * 6 + 's';
-        element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-        
-        // Add different sizes for variety
-        const size = Math.random() * 20 + 20; // 20px to 40px
-        element.style.fontSize = size + 'px';
-        
-        container.appendChild(element);
-    }
-    
-    // Add more background decorative elements
-    for (let i = 0; i < 20; i++) {
-        const bgElement = document.createElement('div');
-        bgElement.className = 'rakhi';
-        bgElement.textContent = elements[Math.floor(Math.random() * elements.length)];
-        bgElement.style.left = Math.random() * 100 + '%';
-        bgElement.style.top = Math.random() * 100 + '%';
-        bgElement.style.animationDelay = Math.random() * 8 + 's';
-        bgElement.style.animationDuration = (Math.random() * 6 + 6) + 's';
-        bgElement.style.fontSize = (Math.random() * 15 + 15) + 'px';
-        bgElement.style.opacity = '0.6';
-        bgElement.style.zIndex = '1';
-        
-        container.appendChild(bgElement);
-    }
-}
+            const container = document.getElementById('floating-elements');
+            const elements = ['🌸', '🌺', '🌻', '🌷', '🌹', '💖', '💝', '🎀', '✨', '🎊', '💫', '⭐', '🌟', '💐', '🏵️'];
+            
+            // Create 30 floating elements instead of 15
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = 'rakhi';
+                element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 6 + 's';
+                element.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                
+                // Add different sizes for variety
+                const size = Math.random() * 20 + 20; // 20px to 40px
+                element.style.fontSize = size + 'px';
+                
+                container.appendChild(element);
+            }
+            
+            // Add more background decorative elements
+            for (let i = 0; i < 20; i++) {
+                const bgElement = document.createElement('div');
+                bgElement.className = 'rakhi';
+                bgElement.textContent = elements[Math.floor(Math.random() * elements.length)];
+                bgElement.style.left = Math.random() * 100 + '%';
+                bgElement.style.top = Math.random() * 100 + '%';
+                bgElement.style.animationDelay = Math.random() * 8 + 's';
+                bgElement.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                bgElement.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                bgElement.style.opacity = '0.6';
+                bgElement.style.zIndex = '1';
+                
+                container.appendChild(bgElement);
+            }
+        }
 
         // Check for sender name in URL
         function checkSender() {
