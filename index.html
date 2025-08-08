@@ -29,127 +29,17 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Ad Containers */
         .ad-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 15px 0;
-            padding: 8px;
+            margin: 20px 0;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             backdrop-filter: blur(5px);
             position: relative;
             z-index: 15;
-        }
-
-        /* Border Decorations */
-        .border-decoration {
-            position: fixed;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .top-border, .bottom-border {
-            width: 100%;
-            height: 60px;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            overflow: hidden;
-        }
-
-        .top-border {
-            top: 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
-        }
-
-        .bottom-border {
-            bottom: 0;
-            background: linear-gradient(0deg, rgba(255,255,255,0.3) 0%, transparent 100%);
-        }
-
-        .left-border, .right-border {
-            width: 60px;
-            height: 100vh;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            overflow: hidden;
-        }
-
-        .left-border {
-            left: 0;
-            background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%);
-        }
-
-        .right-border {
-            right: 0;
-            background: linear-gradient(-90deg, rgba(255,255,255,0.3) 0%, transparent 100%);
-        }
-
-        .decoration-item {
-            font-size: 25px;
-            animation: borderFloat 4s ease-in-out infinite;
-            opacity: 0.8;
-        }
-
-        .decoration-item:nth-child(even) {
-            animation-delay: -2s;
-            animation-direction: reverse;
-        }
-
-        @keyframes borderFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-10px) rotate(90deg) scale(1.1); }
-            50% { transform: translateY(0px) rotate(180deg) scale(1); }
-            75% { transform: translateY(10px) rotate(270deg) scale(0.9); }
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .rakhi {
-            position: absolute;
-            font-size: 30px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
         .container {
@@ -160,20 +50,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px 20px 20px;
+            padding: 40px 20px;
         }
 
         .wishes-card {
             background: linear-gradient(135deg, 
-        rgba(255, 182, 193, 0.95) 0%,
-        rgba(255, 218, 185, 0.95) 25%,
-        rgba(255, 240, 245, 0.95) 50%,
-        rgba(230, 230, 250, 0.95) 75%,
-        rgba(255, 192, 203, 0.95) 100%);
+                rgba(255, 182, 193, 0.95) 0%,
+                rgba(255, 218, 185, 0.95) 25%,
+                rgba(255, 240, 245, 0.95) 50%,
+                rgba(230, 230, 250, 0.95) 75%,
+                rgba(255, 192, 203, 0.95) 100%);
             backdrop-filter: blur(15px);
             border-radius: 25px;
             padding: 40px;
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
@@ -183,7 +73,6 @@
             overflow: visible;
         }
 
-        /* Ocean Wave Animation for Wishes Card */
         .wishes-card::before {
             content: '';
             position: absolute;
@@ -207,59 +96,12 @@
             border-radius: 25px;
         }
 
-        .wishes-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                180deg,
-                rgba(84, 160, 255, 0.15) 0%,
-                rgba(255, 159, 243, 0.15) 25%,
-                rgba(72, 219, 251, 0.15) 50%,
-                rgba(254, 202, 87, 0.15) 75%,
-                rgba(255, 107, 107, 0.15) 100%
-            );
-            background-size: 100% 300%;
-            animation: cardWaveFlowReverse 8s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-            border-radius: 25px;
-        }
-
         @keyframes cardWaveFlow {
-            0% { 
-                background-position: 0% 0%;
-                opacity: 0.6;
-            }
-            50% { 
-                background-position: 0% 100%;
-                opacity: 0.8;
-            }
-            100% { 
-                background-position: 0% 0%;
-                opacity: 0.6;
-            }
+            0% { background-position: 0% 0%; opacity: 0.6; }
+            50% { background-position: 0% 100%; opacity: 0.8; }
+            100% { background-position: 0% 0%; opacity: 0.6; }
         }
 
-        @keyframes cardWaveFlowReverse {
-            0% { 
-                background-position: 0% 100%;
-                opacity: 0.4;
-            }
-            50% { 
-                background-position: 0% 0%;
-                opacity: 0.7;
-            }
-            100% { 
-                background-position: 0% 100%;
-                opacity: 0.4;
-            }
-        }
-
-        /* Rose Rain inside Wishes Card - FULL COVERAGE */
         .card-rose-rain {
             position: absolute;
             top: -50px;
@@ -280,24 +122,13 @@
         }
 
         @keyframes cardRosefall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(calc(100vh + 200px)) rotate(360deg);
-                opacity: 0.3;
-            }
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(calc(100vh + 200px)) rotate(360deg); opacity: 0.3; }
         }
 
-        /* Different animation durations for variety */
         .card-rose:nth-child(1n) { animation-duration: 4s; }
         .card-rose:nth-child(2n) { animation-duration: 5s; }
         .card-rose:nth-child(3n) { animation-duration: 6s; }
-        .card-rose:nth-child(4n) { animation-duration: 4.5s; }
-        .card-rose:nth-child(5n) { animation-duration: 5.5s; }
-        .card-rose:nth-child(6n) { animation-duration: 3.5s; }
-        .card-rose:nth-child(7n) { animation-duration: 6.5s; }
 
         @keyframes cardPulse {
             0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
@@ -311,7 +142,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 15;
-            animation: titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+            animation: titleColorChange 3s ease-in-out infinite;
         }
 
         @keyframes titleColorChange {
@@ -321,21 +152,6 @@
             60% { color: #3498db; }
             80% { color: #9b59b6; }
             100% { color: #e74c3c; }
-        }
-
-        @keyframes titleFall {
-            0% { 
-                transform: translateY(-20px) scale(0.9);
-                opacity: 0.7;
-            }
-            50% { 
-                transform: translateY(0px) scale(1);
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(10px) scale(0.95);
-                opacity: 0.8;
-            }
         }
 
         .sender-info {
@@ -374,23 +190,12 @@
             max-width: 450px;
             height: auto;
             border-radius: 20px;
-            animation: heroGlow 4s ease-in-out infinite alternate, heroFloat 6s ease-in-out infinite;
+            animation: heroGlow 4s ease-in-out infinite alternate;
         }
 
         @keyframes heroGlow {
-            from { 
-                box-shadow: 0 0 25px rgba(255, 107, 107, 0.6);
-                filter: brightness(1);
-            }
-            to { 
-                box-shadow: 0 0 40px rgba(255, 107, 107, 0.9), 0 0 60px rgba(254, 202, 87, 0.7);
-                filter: brightness(1.1);
-            }
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-8px) scale(1.02); }
+            from { box-shadow: 0 0 25px rgba(255, 107, 107, 0.6); filter: brightness(1); }
+            to { box-shadow: 0 0 40px rgba(255, 107, 107, 0.9), 0 0 60px rgba(254, 202, 87, 0.7); filter: brightness(1.1); }
         }
 
         .shayari {
@@ -400,13 +205,8 @@
             font-style: italic;
             position: relative;
             z-index: 15;
-            animation: fadeInUp 1s ease-out, titleColorChange 3s ease-in-out infinite, titleFall 4s ease-in-out infinite;
+            animation: titleColorChange 3s ease-in-out infinite;
             font-weight: bold;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .input-section {
@@ -463,21 +263,6 @@
             overflow: hidden;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -532,17 +317,6 @@
             display: none;
         }
 
-        @media (max-width: 768px) {
-            .wishes-card { padding: 25px; margin: 10px; }
-            .shayari { font-size: 1.1rem; }
-            .container { padding: 70px 10px 10px 10px; }
-            .decoration-item { font-size: 20px; }
-            .top-border, .bottom-border { height: 50px; }
-            .left-border, .right-border { width: 50px; }
-            .hero-image { max-width: 350px; }
-            .card-rose { font-size: 16px; }
-        }
-
         .heart {
             color: #e74c3c;
             animation: heartbeat 1.5s ease-in-out infinite;
@@ -552,72 +326,22 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
+
+        @media (max-width: 768px) {
+            .wishes-card { padding: 25px; margin: 10px; }
+            .shayari { font-size: 1.1rem; }
+            .hero-image { max-width: 350px; }
+            .card-rose { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
-    <!-- Border Decorations -->
-    <div class="border-decoration top-border">
-        <div class="decoration-item">🌸</div>
-        <div class="decoration-item">🌺</div>
-        <div class="decoration-item">🌻</div>
-        <div class="decoration-item">🌷</div>
-        <div class="decoration-item">🌹</div>
-        <div class="decoration-item">💖</div>
-        <div class="decoration-item">🎀</div>
-        <div class="decoration-item">✨</div>
-        <div class="decoration-item">🎊</div>
-        <div class="decoration-item">💝</div>
-    </div>
-
-    <div class="border-decoration bottom-border">
-        <div class="decoration-item">🏵️</div>
-        <div class="decoration-item">🌺</div>
-        <div class="decoration-item">💐</div>
-        <div class="decoration-item">🌸</div>
-        <div class="decoration-item">🌻</div>
-        <div class="decoration-item">💖</div>
-        <div class="decoration-item">🎀</div>
-        <div class="decoration-item">✨</div>
-        <div class="decoration-item">🎊</div>
-        <div class="decoration-item">💫</div>
-    </div>
-
-    <div class="border-decoration left-border">
-        <div class="decoration-item">🌸</div>
-        <div class="decoration-item">💖</div>
-        <div class="decoration-item">🌺</div>
-        <div class="decoration-item">🎀</div>
-        <div class="decoration-item">✨</div>
-        <div class="decoration-item">🌻</div>
-        <div class="decoration-item">🌷</div>
-        <div class="decoration-item">🎊</div>
-        <div class="decoration-item">💝</div>
-        <div class="decoration-item">🏵️</div>
-    </div>
-
-    <div class="border-decoration right-border">
-        <div class="decoration-item">🎊</div>
-        <div class="decoration-item">🌺</div>
-        <div class="decoration-item">💝</div>
-        <div class="decoration-item">🌸</div>
-        <div class="decoration-item">💖</div>
-        <div class="decoration-item">🌻</div>
-        <div class="decoration-item">🎀</div>
-        <div class="decoration-item">✨</div>
-        <div class="decoration-item">🌷</div>
-        <div class="decoration-item">💫</div>
-    </div>
-
-    <!-- Animated Background Elements -->
-    <div class="stars" id="stars"></div>
-    <div class="floating-elements" id="floating-elements"></div>
-
-    <!-- Music Control -->
+     Music Control 
     <div class="music-control">
         <button class="music-btn" onclick="toggleMusic()" id="musicBtn">🎵</button>
     </div>
 
-    <!-- Audio Element for Music -->
+     Audio Element for Music 
     <audio id="backgroundMusic" loop>
         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dhaaga-GVfOZoD9C2dzOgubsMYknZBZFgRiVg.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -625,27 +349,27 @@
 
     <div class="container">
         <div class="wishes-card">
-            <!-- Rose Rain inside Card - FULL COVERAGE -->
+             Rose Rain inside Card 
             <div class="card-rose-rain" id="card-rose-rain"></div>
 
-            <!-- Ad 1 - Top (Title के ऊपर) -->
+             Ad 1 - Top 
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
-                        'key' : '82974d3ce8c55c44deb775ae9b92073c',
+                        'key' : '976aba72103d7f30c652860157ce80d7',
                         'format' : 'iframe',
-                        'height' : 300,
-                        'width' : 160,
+                        'height' : 90,
+                        'width' : 728,
                         'params' : {}
                     };
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/82974d3ce8c55c44deb775ae9b92073c/invoke.js"></script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
 
-            <!-- Title (Photo के ऊपर) -->
+             Title 
             <h1 class="title">🎊 रक्षा बंधन की शुभकामनाएं 🎊</h1>
             
-            <!-- Beautiful Animated Hero Image (Title के नीचे) -->
+             Hero Image 
             <div class="hero-image-container">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/..-Av04JLoSjMO3JsFoVWC2IeAC7QAyR3.webp" 
                      alt="रक्षा बंधन की शुभकामनाएं - भाई बहन का प्यार" 
@@ -656,7 +380,7 @@
                 <span class="heart">❤️</span> <span id="senderName"></span> जी ने आपको ये प्यार भरी शुभकामनाएं भेजी हैं <span class="heart">❤️</span>
             </div>
 
-            <!-- पहली शायरी -->
+             पहली शायरी 
             <div class="shayari">
                 "रक्षा का बंधन, प्रेम की डोर,<br>
                 भाई-बहन का अनमोल छोर।<br>
@@ -664,40 +388,26 @@
                 खुशियों से भरे जीवन की रुआ।"
             </div>
 
-            <!-- Ad 2 - After First Shayari -->
+             Ad 2 - Middle 
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
-                        'key' : '0102dafd4a97504356dbb55ceb9cab74',
+                        'key' : '976aba72103d7f30c652860157ce80d7',
                         'format' : 'iframe',
-                        'height' : 600,
-                        'width' : 160,
+                        'height' : 90,
+                        'width' : 728,
                         'params' : {}
                     };
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/0102dafd4a97504356dbb55ceb9cab74/invoke.js"></script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
 
-            <!-- दूसरी शायरी -->
+             दूसरी शायरी 
             <div class="shayari">
                 "<span class="heart">🌟</span> चाँद सितारों से सजे आपके सपने,<br>
                 फूलों की खुशबू से महके आपके अपने।<br>
                 हर मुश्किल में हो साथ खुदा का,<br>
                 यही दुआ है इस प्यार भरे रिश्ते का। <span class="heart">🌟</span>"
-            </div>
-
-            <!-- Ad 3 - After Second Shayari -->
-            <div class="ad-container">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '39444dc47ae52a38c241b9918c6e8f12',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/39444dc47ae52a38c241b9918c6e8f12/invoke.js"></script>
             </div>
 
             <div class="input-section">
@@ -717,110 +427,54 @@
                 <button class="btn" onclick="shareNatively()">📱 शेयर करें</button>
             </div>
 
-            <!-- Ad 4 - Bottom -->
+             Ad 3 - Bottom 
             <div class="ad-container">
                 <script type="text/javascript">
                     atOptions = {
-                        'key' : '39444dc47ae52a38c241b9918c6e8f12',
+                        'key' : '976aba72103d7f30c652860157ce80d7',
                         'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
+                        'height' : 90,
+                        'width' : 728,
                         'params' : {}
                     };
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/39444dc47ae52a38c241b9918c6e8f12/invoke.js"></script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/976aba72103d7f30c652860157ce80d7/invoke.js"></script>
             </div>
         </div>
     </div>
 
     <script>
-        // Audio Element for Music
         const backgroundMusic = document.getElementById('backgroundMusic');
         let musicPlaying = false;
 
-        // Create Red Rose Rain inside Card - FULL COVERAGE
+        // Optimized Rose Rain
         function createCardRoseRain() {
-            const cardRoseRainContainer = document.getElementById('card-rose-rain');
+            const container = document.getElementById('card-rose-rain');
             
-            function addCardRose() {
+            function addRose() {
                 const rose = document.createElement('div');
                 rose.className = 'card-rose';
                 rose.textContent = '🌹';
                 rose.style.left = Math.random() * 100 + '%';
-                rose.style.animationDelay = Math.random() * 3 + 's';
-                rose.style.fontSize = (Math.random() * 8 + 16) + 'px';
+                rose.style.animationDelay = Math.random() * 2 + 's';
+                rose.style.fontSize = (Math.random() * 6 + 16) + 'px';
                 
-                cardRoseRainContainer.appendChild(rose);
+                container.appendChild(rose);
                 
-                // Remove rose after animation completes
                 setTimeout(() => {
                     if (rose.parentNode) {
                         rose.parentNode.removeChild(rose);
                     }
-                }, 7000);
+                }, 6000);
             }
             
-            // Add roses continuously - MORE FREQUENT
-            setInterval(addCardRose, 200); // New rose every 200ms (faster)
+            setInterval(addRose, 300);
             
-            // Initial burst of roses
-            for (let i = 0; i < 25; i++) {
-                setTimeout(addCardRose, i * 100);
+            for (let i = 0; i < 15; i++) {
+                setTimeout(addRose, i * 150);
             }
         }
 
-        // Create animated stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 50; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.width = Math.random() * 3 + 1 + 'px';
-                star.style.height = star.style.width;
-                star.style.animationDelay = Math.random() * 2 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // Create floating rakhi elements
-        function createFloatingElements() {
-            const container = document.getElementById('floating-elements');
-            const elements = ['🌸', '🌺', '🌻', '🌷', '🌹', '💖', '💝', '🎀', '✨', '🎊', '💫', '⭐', '🌟', '💐', '🏵️'];
-            
-            for (let i = 0; i < 30; i++) {
-                const element = document.createElement('div');
-                element.className = 'rakhi';
-                element.textContent = elements[Math.floor(Math.random() * elements.length)];
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.animationDelay = Math.random() * 6 + 's';
-                element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                
-                const size = Math.random() * 20 + 20;
-                element.style.fontSize = size + 'px';
-                
-                container.appendChild(element);
-            }
-            
-            for (let i = 0; i < 20; i++) {
-                const bgElement = document.createElement('div');
-                bgElement.className = 'rakhi';
-                bgElement.textContent = elements[Math.floor(Math.random() * elements.length)];
-                bgElement.style.left = Math.random() * 100 + '%';
-                bgElement.style.top = Math.random() * 100 + '%';
-                bgElement.style.animationDelay = Math.random() * 8 + 's';
-                bgElement.style.animationDuration = (Math.random() * 6 + 6) + 's';
-                bgElement.style.fontSize = (Math.random() * 15 + 15) + 'px';
-                bgElement.style.opacity = '0.6';
-                bgElement.style.zIndex = '1';
-                
-                container.appendChild(bgElement);
-            }
-        }
-
-        // Check for sender name in URL
         function checkSender() {
             const urlParams = new URLSearchParams(window.location.search);
             const sender = urlParams.get('from');
@@ -831,7 +485,6 @@
             }
         }
 
-        // Generate share link
         function generateShareLink() {
             const name = document.getElementById('yourName').value.trim();
             
@@ -847,7 +500,6 @@
             document.getElementById('shareSection').classList.remove('hidden');
         }
 
-        // Copy link to clipboard
         function copyLink() {
             const linkText = document.getElementById('shareLink').textContent;
             navigator.clipboard.writeText(linkText).then(() => {
@@ -863,7 +515,6 @@
             });
         }
 
-        // Native share function
         function shareNatively() {
             const name = document.getElementById('yourName').value.trim();
             const shareUrl = document.getElementById('shareLink').textContent;
@@ -874,27 +525,16 @@
                     title: 'रक्षा बंधन की शुभकामनाएं',
                     text: message,
                     url: shareUrl
-                }).then(() => {
-                    console.log('Successfully shared');
-                }).catch((error) => {
-                    console.log('Error sharing:', error);
-                    fallbackShare(message);
                 });
             } else {
-                fallbackShare(message);
+                navigator.clipboard.writeText(message).then(() => {
+                    alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
+                }).catch(() => {
+                    prompt('यह message copy करें और share करें:', message);
+                });
             }
         }
 
-        // Fallback share for browsers that don't support Web Share API
-        function fallbackShare(message) {
-            navigator.clipboard.writeText(message).then(() => {
-                alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
-            }).catch(() => {
-                prompt('यह message copy करें और share करें:', message);
-            });
-        }
-
-        // Music control using <audio> element
         function toggleMusic() {
             const btn = document.getElementById('musicBtn');
             
@@ -902,64 +542,25 @@
                 backgroundMusic.pause();
                 musicPlaying = false;
                 btn.textContent = '🎵';
-                btn.style.animation = 'musicPulse 2s infinite';
             } else {
                 backgroundMusic.play().catch(error => {
                     console.error("Music playback failed:", error);
-                    alert("संगीत चलाने में समस्या हुई। कृपया सुनिश्चित करें कि ब्राउज़र ऑटोप्ले की अनुमति देता है।");
                 });
                 musicPlaying = true;
                 btn.textContent = '🔇';
-                btn.style.animation = 'musicPulse 0.5s infinite';
             }
         }
 
-        // Initialize everything when page loads
+        // Initialize
         window.addEventListener('load', () => {
-            createStars();
-            createFloatingElements();
-            createCardRoseRain(); // Start the rose rain inside card
+            createCardRoseRain();
             checkSender();
             
-            // Auto-redirect to Adsterra link after 10 seconds
+            // Auto-redirect after 15 seconds
             setTimeout(() => {
                 window.open('https://greetingsdaydreamlitre.com/e25jicxknx?key=e58029ff3d0f72d7cd261d6d1328b384', '_blank');
-            }, 10000); // 10 seconds delay
+            }, 15000);
         });
-
-        // Add some interactive effects
-        document.addEventListener('click', (e) => {
-            const ripple = document.createElement('div');
-            ripple.style.position = 'fixed';
-            ripple.style.left = e.clientX + 'px';
-            ripple.style.top = e.clientY + 'px';
-            ripple.style.width = '10px';
-            ripple.style.height = '10px';
-            ripple.style.background = 'rgba(255, 107, 107, 0.6)';
-            ripple.style.borderRadius = '50%';
-            ripple.style.transform = 'translate(-50%, -50%)';
-            ripple.style.animation = 'ripple 0.6s ease-out';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.zIndex = '1000';
-            
-            document.body.appendChild(ripple);
-            
-            setTimeout(() => {
-                document.body.removeChild(ripple);
-            }, 600);
-        });
-
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: translate(-50%, -50%) scale(20);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
