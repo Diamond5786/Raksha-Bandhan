@@ -15,18 +15,24 @@
 
         body {
             font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
             background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            position: relative;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .wishes-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 2px solid #feca57;
         }
 
         .ad-container {
@@ -37,121 +43,14 @@
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
-            backdrop-filter: blur(5px);
-            position: relative;
-            z-index: 15;
-        }
-
-        .container {
-            position: relative;
-            z-index: 10;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        .wishes-card {
-            background: linear-gradient(135deg, 
-                rgba(255, 182, 193, 0.95) 0%,
-                rgba(255, 218, 185, 0.95) 25%,
-                rgba(255, 240, 245, 0.95) 50%,
-                rgba(230, 230, 250, 0.95) 75%,
-                rgba(255, 192, 203, 0.95) 100%);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 3px solid rgba(255, 215, 0, 0.7);
-            animation: cardPulse 3s ease-in-out infinite;
-            position: relative;
-            overflow: visible;
-        }
-
-        .wishes-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                0deg,
-                rgba(255, 107, 107, 0.2) 0%,
-                rgba(254, 202, 87, 0.2) 20%,
-                rgba(72, 219, 251, 0.2) 40%,
-                rgba(255, 159, 243, 0.2) 60%,
-                rgba(84, 160, 255, 0.2) 80%,
-                rgba(255, 107, 107, 0.2) 100%
-            );
-            background-size: 100% 200%;
-            animation: cardWaveFlow 6s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 1;
-            border-radius: 25px;
-        }
-
-        @keyframes cardWaveFlow {
-            0% { background-position: 0% 0%; opacity: 0.6; }
-            50% { background-position: 0% 100%; opacity: 0.8; }
-            100% { background-position: 0% 0%; opacity: 0.6; }
-        }
-
-        .card-rose-rain {
-            position: absolute;
-            top: -50px;
-            left: -20px;
-            width: calc(100% + 40px);
-            height: calc(100% + 100px);
-            pointer-events: none;
-            z-index: 5;
-            overflow: visible;
-        }
-
-        .card-rose {
-            position: absolute;
-            font-size: 18px;
-            color: #e74c3c;
-            animation: cardRosefall linear infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes cardRosefall {
-            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(calc(100vh + 200px)) rotate(360deg); opacity: 0.3; }
-        }
-
-        .card-rose:nth-child(1n) { animation-duration: 4s; }
-        .card-rose:nth-child(2n) { animation-duration: 5s; }
-        .card-rose:nth-child(3n) { animation-duration: 6s; }
-
-        @keyframes cardPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
-            50% { transform: scale(1.02); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); }
         }
 
         .title {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 15;
-            animation: titleColorChange 3s ease-in-out infinite;
-        }
-
-        @keyframes titleColorChange {
-            0% { color: #e74c3c; }
-            20% { color: #f39c12; }
-            40% { color: #27ae60; }
-            60% { color: #3498db; }
-            80% { color: #9b59b6; }
-            100% { color: #e74c3c; }
+            color: #e74c3c;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .sender-info {
@@ -162,40 +61,20 @@
             margin-bottom: 20px;
             font-size: 1.2rem;
             font-weight: 600;
-            animation: bounce 2s infinite;
-            position: relative;
-            z-index: 15;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
         }
 
         .hero-image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: 25px 0;
-            position: relative;
-            z-index: 15;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .hero-image {
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             height: auto;
-            border-radius: 20px;
-            animation: heroGlow 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes heroGlow {
-            from { box-shadow: 0 0 25px rgba(255, 107, 107, 0.6); filter: brightness(1); }
-            to { box-shadow: 0 0 40px rgba(255, 107, 107, 0.9), 0 0 60px rgba(254, 202, 87, 0.7); filter: brightness(1.1); }
+            border-radius: 15px;
         }
 
         .shayari {
@@ -203,16 +82,12 @@
             line-height: 1.8;
             margin: 25px 0;
             font-style: italic;
-            position: relative;
-            z-index: 15;
-            animation: titleColorChange 3s ease-in-out infinite;
             font-weight: bold;
+            color: #2c3e50;
         }
 
         .input-section {
             margin: 30px 0;
-            position: relative;
-            z-index: 15;
         }
 
         .input-group {
@@ -230,20 +105,16 @@
         .input-group input {
             width: 100%;
             padding: 12px 20px;
-            border: 3px solid #feca57;
+            border: 2px solid #feca57;
             border-radius: 25px;
             font-size: 1.1rem;
             font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
             outline: none;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            font-weight: 400;
+            background: white;
         }
 
         .input-group input:focus {
             border-color: #ff6b6b;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
         }
 
         .btn {
@@ -255,17 +126,12 @@
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             margin: 10px;
             font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
-            position: relative;
-            z-index: 15;
-            overflow: hidden;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
         }
 
         .share-section {
@@ -273,8 +139,6 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 15px;
-            position: relative;
-            z-index: 15;
         }
 
         .share-link {
@@ -285,7 +149,6 @@
             margin: 10px 0;
             font-family: 'Inter', monospace;
             border: 2px dashed #feca57;
-            font-weight: 400;
         }
 
         .music-control {
@@ -304,13 +167,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
-            animation: musicPulse 2s infinite;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes musicPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
 
         .hidden {
@@ -319,19 +176,25 @@
 
         .heart {
             color: #e74c3c;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
         }
 
         @media (max-width: 768px) {
-            .wishes-card { padding: 25px; margin: 10px; }
-            .shayari { font-size: 1.1rem; }
-            .hero-image { max-width: 350px; }
-            .card-rose { font-size: 16px; }
+            .wishes-card { 
+                padding: 20px; 
+                margin: 10px; 
+            }
+            .shayari { 
+                font-size: 1.1rem; 
+            }
+            .hero-image { 
+                max-width: 300px; 
+            }
+            .title {
+                font-size: 1.5rem;
+            }
+            .ad-container {
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
@@ -349,9 +212,6 @@
 
     <div class="container">
         <div class="wishes-card">
-             Rose Rain inside Card 
-            <div class="card-rose-rain" id="card-rose-rain"></div>
-
              Ad 1 - Top 
             <div class="ad-container">
                 <script type="text/javascript">
@@ -447,34 +307,6 @@
         const backgroundMusic = document.getElementById('backgroundMusic');
         let musicPlaying = false;
 
-        // Optimized Rose Rain
-        function createCardRoseRain() {
-            const container = document.getElementById('card-rose-rain');
-            
-            function addRose() {
-                const rose = document.createElement('div');
-                rose.className = 'card-rose';
-                rose.textContent = '🌹';
-                rose.style.left = Math.random() * 100 + '%';
-                rose.style.animationDelay = Math.random() * 2 + 's';
-                rose.style.fontSize = (Math.random() * 6 + 16) + 'px';
-                
-                container.appendChild(rose);
-                
-                setTimeout(() => {
-                    if (rose.parentNode) {
-                        rose.parentNode.removeChild(rose);
-                    }
-                }, 6000);
-            }
-            
-            setInterval(addRose, 300);
-            
-            for (let i = 0; i < 15; i++) {
-                setTimeout(addRose, i * 150);
-            }
-        }
-
         function checkSender() {
             const urlParams = new URLSearchParams(window.location.search);
             const sender = urlParams.get('from');
@@ -502,9 +334,11 @@
 
         function copyLink() {
             const linkText = document.getElementById('shareLink').textContent;
-            navigator.clipboard.writeText(linkText).then(() => {
-                alert('लिंक कॉपी हो गया! 📋✅');
-            }).catch(() => {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(linkText).then(() => {
+                    alert('लिंक कॉपी हो गया! 📋✅');
+                });
+            } else {
                 const textArea = document.createElement('textarea');
                 textArea.value = linkText;
                 document.body.appendChild(textArea);
@@ -512,7 +346,7 @@
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
                 alert('लिंक कॉपी हो गया! 📋✅');
-            });
+            }
         }
 
         function shareNatively() {
@@ -527,11 +361,13 @@
                     url: shareUrl
                 });
             } else {
-                navigator.clipboard.writeText(message).then(() => {
-                    alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
-                }).catch(() => {
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(message).then(() => {
+                        alert('Message copied to clipboard! आप इसे किसी भी app में paste कर सकते हैं।');
+                    });
+                } else {
                     prompt('यह message copy करें और share करें:', message);
-                });
+                }
             }
         }
 
@@ -551,15 +387,30 @@
             }
         }
 
-        // Initialize
-        window.addEventListener('load', () => {
-            createCardRoseRain();
+        // Mobile-friendly redirect function
+        function openAdsterraLink() {
+            const adsterraUrl = 'https://greetingsdaydreamlitre.com/e25jicxknx?key=e58029ff3d0f72d7cd261d6d1328b384';
+            
+            // Try multiple methods for mobile compatibility
+            if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                // Mobile device
+                try {
+                    window.location.href = adsterraUrl;
+                } catch (e) {
+                    window.open(adsterraUrl, '_blank');
+                }
+            } else {
+                // Desktop
+                window.open(adsterraUrl, '_blank');
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
             checkSender();
             
-            // Auto-redirect after 15 seconds
-            setTimeout(() => {
-                window.open('https://greetingsdaydreamlitre.com/e25jicxknx?key=e58029ff3d0f72d7cd261d6d1328b384', '_blank');
-            }, 15000);
+            // Auto-redirect after 15 seconds - Mobile compatible
+            setTimeout(openAdsterraLink, 15000);
         });
     </script>
 </body>
